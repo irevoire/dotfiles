@@ -2036,7 +2036,7 @@ function prompt_grml-chroot_help () {
     The main difference is the default value of the \`items' style. The rest
     behaves exactly the same. Here are the defaults for \`grml-chroot':
 
-        - left: grml-chroot user at host path percent
+        - left: grml-chroot user at host path  percent
         - right: (empty list)
 __EOF0__
 }
@@ -2092,7 +2092,7 @@ grml_prompt_pre_default=(
     at                ''
     battery           ' '
     change-root       ''
-    date              '%F{blue}'
+    date              '%F{green}'
     grml-chroot       '%F{red}'
     history           '%F{green}'
     host              ''
@@ -2356,8 +2356,8 @@ function prompt_grml_precmd () {
     emulate -L zsh
     local grmltheme=grml
     local -a left_items right_items
-    left_items=(rc change-root user at host path vcs percent)
-    right_items=(sad-smiley)
+    left_items=(rc change-root user at host path percent)
+    right_items=(vcs sad-smiley)
 
     prompt_grml_precmd_worker
 }
