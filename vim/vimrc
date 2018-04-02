@@ -5,3 +5,4 @@ set autoindent          " auto indenting
 set number              " line numbers
 colorscheme molokai      " colorscheme desert
 set nobackup            " get rid of anoying ~file
+set mouse=r
