@@ -3739,6 +3739,8 @@ if (( GRMLSMALL_SPECIFIC > 0 )) && isgrmlsmall ; then
 
 fi
 
+unsetopt nomatch
+
 zrclocal
 
 ## genrefcard.pl settings
