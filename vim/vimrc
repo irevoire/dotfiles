@@ -3,6 +3,10 @@ syntax on               " syntax highlighting
 filetype indent on      " activates indenting for files
 set autoindent          " auto indenting
 set number              " line numbers
-colorscheme molokai     " colorscheme desert
 set nobackup            " get rid of anoying ~file
+set incsearch		" interactive search of words
+set scrolloff=999	" keep cursor on the middle of the screen
+
+colorscheme molokai     " colorscheme desert
+
 set mouse=r             " remove mouse support
