@@ -1,0 +1,61 @@
+scriptencoding utf-8
+syntax on                      " Syntax highlighting
+filetype plugin indent on      " Automatically detect file types.
+set background=dark            " Assume a dark background
+set mouse=r                    " Automatically enable mouse usage
+set mousehide                  " Hide the mouse cursor while typing
+set backspace=indent,eol,start " Backspace for dummies
+set linespace=0                " No extra spaces between rows
+set number                     " Line numbers on
+set showmatch                  " Show matching brackets/parenthesis
+set incsearch                  " Find as you type search
+set hlsearch                   " Highlight search terms
+set winminheight=0             " Windows can be 0 line high
+set ignorecase                 " Case insensitive search
+set smartcase                  " Case sensitive when uc present
+set wildmenu                   " Show list instead of just completing
+set wildmode=list:longest,full " Command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]  " Backspace and cursor keys wrap too
+set scrolljump=5               " Lines to scroll when cursor leaves screen
+set scrolloff=999              " Minimum lines to keep above and below cursor
+set autoindent                 " Indent at the same level of the previous line
+set shiftwidth=8               " Use indents of 4 spaces
+set tabstop=8                  " An indentation every four columns
+set nojoinspaces               " Prevents inserting two spaces after punctuation on a join (J)
+set splitright                 " Puts new vsplit windows to the right of the current
+set splitbelow                 " Puts new split windows to the bottom of the current
+set matchpairs+=<:>            " Match, to be used with %
+
+colorscheme molokai     " colorscheme desert
+
+let mapleader = ','
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'vim-scripts/matchit.zip'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'scrooloose/nerdcommenter'
+Plug 'luochen1990/rainbow'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'godlygeek/tabular'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+
+Plug 'gko/vim-coloresque'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-fugitive'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'plasticboy/vim-markdown'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'fatih/vim-go'
+call plug#end()
