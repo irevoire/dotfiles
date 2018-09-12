@@ -46,7 +46,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 
 Plug 'gko/vim-coloresque'
@@ -56,5 +55,4 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'plasticboy/vim-markdown'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'fatih/vim-go'
 call plug#end()
