@@ -18,6 +18,9 @@ set nojoinspaces               " Prevents inserting two spaces after punctuation
 set splitright                 " Puts new vsplit windows to the right of the current
 set splitbelow                 " Puts new split windows to the bottom of the current
 set matchpairs+=<:>            " Match, to be used with %
+set pastetoggle=<F3>
+set cinoptions=t0              " fix the identation of C file
+
 
 colorscheme molokai     " colorscheme desert
 
@@ -28,26 +31,21 @@ let mapleader = ','
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'vim-scripts/restore_view.vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-system-copy'
 Plug 'vim-airline/vim-airline'
-let g:airline_powerline_fonts = 1
-
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 call plug#end()
+
+au BufRead,BufNewFile *.rs      set filetype=rust
