@@ -21,4 +21,4 @@ Most of my layout was stolen from https://bepo.fr/wiki/Vim#Reconfiguration_parti
 
 I’ve still updated this file to move the movement keys from `hjkl` to `jklm`.
 
-![](bepo.pn)
+![](bepo.png)
