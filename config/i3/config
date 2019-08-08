@@ -201,9 +201,9 @@ bar {
 	}
 }
 
-bindsym XF86Calculator exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86Mail exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86HomePage exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # user added shortcuts
@@ -228,6 +228,10 @@ exec --no-startup-id pulseaudio
 exec --no-startup-id compton
 exec --no-startup-id xbanish
 exec --no-startup-id discord
+exec --no-startup-id firefox
+
+assign [class="Navigator"] $ws1
+assign [class="discord"] $ws10
 
 exec "setxkbmap fr -variant bepo"
 # Alternative (set last used background)
