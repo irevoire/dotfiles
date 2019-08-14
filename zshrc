@@ -102,7 +102,4 @@ unsetopt nomatch
 export PATH="${PATH}:${HOME}/.local/bin/"
 source $HOME/.cargo/env
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 alias open="xdg-open"
