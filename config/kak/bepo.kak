@@ -39,8 +39,9 @@ map global goto   h t         -docstring "window center"
 map global normal H T         -docstring "expand a new cursor below"
 
 # use é to go one word forward
-map global normal é w         -docstring "select to next word start"
-# allow the usage of « and » to indent and deindent
-map global normal « <         -docstring "deindent"
-map global normal » >         -docstring "indent"
+map global normal é w -docstring "select to next word start"
+map global normal É W -docstring "extend to next word start"
+# allow the usage of "«" and "»" to indent and deindent
+map global normal « < -docstring "deindent"
+map global normal » > -docstring "indent"
 
