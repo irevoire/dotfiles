@@ -1,0 +1,7 @@
+set-option global scrolloff 99,0 # keep the cursor in the center of the screen
+
+
+colorscheme molokai
+
+source ~/.config/kak/bepo.kak
+
