@@ -1,4 +1,5 @@
 set-option global scrolloff 99,0 # keep the cursor in the center of the screen
+set-option global ui_options ncurses_enable_mouse=false
 
 # define hook to avoid going to the next line when going on the right at the end of a line
 hook global NormalKey h %{
@@ -12,6 +13,16 @@ hook global NormalKey l %{
                 execute-keys <a-k>^<ret>h
     }
 }
+
+define-command delete-whichwrap %{ evaluate-commands -draft -itersel %sh{
+        if [ "${kak_selection}" = "
+" ]; then
+        echo "exec i<backspace><esc>"
+            else
+                    echo "exec d"
+                        fi
+} }
+map global normal d ': delete-whichwrap<ret>'
 
 # bepo mappings
 source ~/.config/kak/bepo.kak
@@ -28,4 +39,3 @@ hook global WinSetOption filetype=rust %{
 hook global BufWritePre .*\.rs %{
     format
 }
-
