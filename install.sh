@@ -1,4 +1,4 @@
-cp ./config ~/.config
+cp -r ./config ~/.config
 cp ./Xressources ~/.Xressources
 cp ./zshrc ~/.zshrc
 
