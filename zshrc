@@ -102,4 +102,4 @@ unsetopt nomatch
 export PATH="${PATH}:${HOME}/.local/bin/"
 source $HOME/.cargo/env
 
-alias open="xdg-open"
+export FZF_DEFAULT_COMMAND='rg --files'
