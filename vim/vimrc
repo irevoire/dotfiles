@@ -52,5 +52,6 @@ match NonBreakingSpace " " " (CTRL+V x a 0)
 hi TrailingSpaceChar ctermbg=Green guibg=Green
 syn match TrailingSpaceChar "\s\+$"
 
+hi Normal ctermbg=none
 
 source ~/.vimrc.bepo
