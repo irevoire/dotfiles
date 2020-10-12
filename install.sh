@@ -1,5 +1,5 @@
 cp -r ./config ~/.config
-cp ./Xressources ~/.Xressources
+cp ./Xresources ~/.Xresources
 cp ./zshrc ~/.zshrc
 
 cp ./.gitignore_global ~/.gitignore_global
