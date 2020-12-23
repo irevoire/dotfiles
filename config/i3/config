@@ -53,7 +53,7 @@ font pango: DejaVu Sans Mono: Noto Color Emoji, 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -181,36 +181,50 @@ mode "resize" {
  
 bindsym $mod+m mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-        status_command i3status
-	position top
+    mode hide
 
-	colors {
-		background $base01
-		separator  $base00
-		statusline $base05
-
-		# State             Border  BG      Text
-		focused_workspace   $base05 $base0D $base00
-		active_workspace    $base05 $base03 $base00
-		inactive_workspace  $base03 $base01 $base05
-		urgent_workspace    $base08 $base08 $base00
-		binding_mode $base00 $base0A $base00
-	}
+    font pango:DejaVu Sans Mono, FontAwesome 12
+    position top
+    status_command i3status-rs
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
 }
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# disable the bar on top of each windows
+new_window 1pixel
+
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+
+bindsym XF86AudioRaiseVolume exec i3-volume up 5 -n -p
+bindsym XF86AudioLowerVolume exec i3-volume down 5 -n -p
+bindsym XF86AudioMute exec i3-volume mute -n -p
+
+bindsym XF86Video exec mons -n right
+
+set $brillo exec brillo -equ 1500
+bindsym XF86MonBrightnessDown exec $brillo -U 5
+bindsym XF86MonBrightnessUp exec $brillo -A 5
+
+bindsym $ctrl+XF86MonBrightnessDown exec brillo -U 10
+bindsym $ctrl+XF86MonBrightnessUp exec brillo -A 10
 
 # user added shortcuts
-bindsym $ctrl+$alt+l exec i3lock -i ~/wallpaper.jpg -e -f
+bindsym $mod+l exec betterlockscreen -l dim
 
 # screenshot utility
-bindsym $mod+p exec "flameshot gui"
+bindsym Print exec "flameshot full -c"
+bindsym $ctrl+Print exec "flameshot gui"
+# bindsym $mod+p exec "flameshot gui"
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -221,10 +235,9 @@ client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background $base01
 
-exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id libinput-gestures-setup start
+exec --no-startup-id xbanish
 exec --no-startup-id dunst
-exec --no-startup-id flameshot
-exec --no-startup-id pulseaudio
 exec --no-startup-id compton
 exec --no-startup-id xbanish
 exec --no-startup-id discord
@@ -233,6 +246,8 @@ exec --no-startup-id firefox
 assign [class="Navigator"] $ws1
 assign [class="discord"] $ws10
 
+# this will keep the PiP window of chromium and firefox on top of all desktop
+for_window [title="Picture-in-Picture"] sticky enable, border none
+
 exec "setxkbmap fr -variant bepo"
-# Alternative (set last used background)
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id feh --bg-scale ~/.wallpaper/champi.jpg
